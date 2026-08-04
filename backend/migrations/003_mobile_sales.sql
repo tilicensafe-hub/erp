@@ -1,0 +1,12 @@
+ALTER TABLE products ADD COLUMN IF NOT EXISTS ncm TEXT;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS cfop TEXT;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS cest TEXT;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS origin TEXT NOT NULL DEFAULT '0';
+ALTER TABLE products ADD COLUMN IF NOT EXISTS cst_csosn TEXT;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS icms_rate NUMERIC(6,2) NOT NULL DEFAULT 0;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS pis_rate NUMERIC(6,2) NOT NULL DEFAULT 0;
+ALTER TABLE products ADD COLUMN IF NOT EXISTS cofins_rate NUMERIC(6,2) NOT NULL DEFAULT 0;
+
+CREATE INDEX IF NOT EXISTS idx_app_users_updated_at ON app_users(updated_at);
+CREATE INDEX IF NOT EXISTS idx_app_users_email_active ON app_users(email, active);
+CREATE INDEX IF NOT EXISTS idx_sales_order_items_updated_at ON sales_order_items(updated_at);
